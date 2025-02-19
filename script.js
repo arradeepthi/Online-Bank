@@ -1,8 +1,5 @@
 let users = [];
 let user = {}
-// let useremail = "";
-// let username = "";
-// let currBalance = 0;
 document.write("<div id=root></div>");
 function showUser() {
   if (document.getElementById("type").value == "3") {
@@ -53,6 +50,7 @@ function saveData() {
 }
 function home() {
   let str = `
+  <div class="home">
       <h3>Welcome ${user.name}</h3>
       <button onclick='showLogin()'>Logout</button>
       <p><select id="type" onchange='showUser()'>
@@ -65,7 +63,7 @@ function home() {
          <p><input type="number" id="amount" placeholder="Enter Amount"></p>
          <button onclick='saveData()'>Submit</button>
          <p><b>Current Balance: <span id='spBalance'>${user.balance}</span></b></p>
-
+</div>
       `;
   root.innerHTML = str;
 }
@@ -102,25 +100,27 @@ function chkUser() {
 }
 function showForm() {
   let str = `
-  <h2>Registration Form</h2>
+  <div class="reg">
+  <h2 align="center" >Registration Form</h2>
   <p><input type="text" id="name" placeholder="Name"></p>
   <p><input type="text" id="email" placeholder="Email"></p>
   <p><input type="password" id="password" placeholder="Password"></p>
   <p><input type="date" id="dob"></p>
-  <p><button onclick='addUser()'>Submit</button></p>
-  <p>Already a member?<button onclick='showLogin()'>Login Here</button></p>
+  <button class="crt-acc" onclick='addUser()'>Submit</button>
+  <p align="center" >Already a member?</p><button class="log-in" onclick='showLogin()'>Login Here</button>
+  </div>
   `;
   root.innerHTML = str;
 }
 function showLogin() {
   let str = `
-  <div>
-      <h2>Login Form</h2>
+  <div class="login">
+      <h2 align="center">Login Form</h2>
       <div id='msg'></div>
-      <p><input id="email" type="text"></p>
-      <p><input id="password" type="password"></p>
-      <button onclick='chkUser()'>Log In</button>
-      <p><button onclick='showForm()'>Create Account</button></p>
+      <p><input id="email" type="text" placeholder="Email"></p>
+      <p><input id="password" type="password" placeholder="Password"></p>
+      <button class="log-in" onclick='chkUser()'>Log In</button>
+      <button class="crt-acc" onclick='showForm()'>Create Account</button>
   </div>
   `;
   root.innerHTML = str;
